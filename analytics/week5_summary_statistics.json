@@ -1,0 +1,12 @@
+{
+  "analysis_date": "2025-08-21T19:58:52.259104",
+  "total_campaigns": 24,
+  "total_targets": 2905,
+  "total_clicks": 503,
+  "overall_risk_reduction_pct": 33.33333333333333,
+  "reporting_improvement_pct": -31.961762566404843,
+  "total_people_trained": 655,
+  "avg_training_effectiveness": 0.5165713476479312,
+  "best_department": "Marketing",
+  "needs_attention_department": "HR"
+}
