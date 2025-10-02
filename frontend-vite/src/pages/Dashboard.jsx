@@ -1,7 +1,14 @@
 import React from 'react';
+import KPIDashboardPanel from '../components/KPIDashboardPanel';
+import '../components/KPIDashboardPanel.css';
+
 
 function Dashboard() {
-	return <div>Dashboard Page (placeholder)</div>;
+	return (
+		<div>
+			<KPIDashboardPanel />
+		</div>
+	);
 }
 
 export default Dashboard;

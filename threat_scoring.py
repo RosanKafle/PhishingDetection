@@ -54,30 +54,36 @@ def classify_threat_level(score):
     else:
         return "INFORMATIONAL"
 
-if __name__ == "__main__":
-    # Sample test cases
-    
-    test_cases = [
-        {
-            'url': 'http://paypal-secure.tk/login',
-            'sources_count': 3,
-            'api_results': {'virustotal_malicious': 5, 'urlvoid_failed': False}
-        },
-        {
-            'url': 'http://google-support12345.ga/security',
-            'sources_count': 1,
-            'api_results': {'virustotal_malicious': 0, 'urlvoid_failed': True}
-        },
-        {
-            'url': 'https://example.com/home',
-            'sources_count': 0,
-            'api_results': {'virustotal_malicious': 0, 'urlvoid_failed': False}
-        }
-    ]
+import sys
+import json
 
-    for case in test_cases:
-        score = calculate_threat_score(case['url'], case['sources_count'], case['api_results'])
+def main():
+    # Accept JSON input from stdin or as a file argument
+    if len(sys.argv) > 1:
+        with open(sys.argv[1], 'r') as f:
+            input_data = json.load(f)
+    else:
+        input_data = json.load(sys.stdin)
+
+    # input_data should be a list of cases or a single dict
+    if isinstance(input_data, dict):
+        cases = [input_data]
+    else:
+        cases = input_data
+
+    results = []
+    for case in cases:
+        url = case.get('url')
+        sources_count = case.get('sources_count', 1)
+        api_results = case.get('api_results', {})
+        score = calculate_threat_score(url, sources_count, api_results)
         level = classify_threat_level(score)
-        print(f"URL: {case['url']}")
-        print(f"Threat Score: {score} / 100")
-        print(f"Threat Level: {level}\n")
+        results.append({
+            'url': url,
+            'threat_score': score,
+            'threat_level': level
+        })
+    print(json.dumps(results))
+
+if __name__ == "__main__":
+    main()
