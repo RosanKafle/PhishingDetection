@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getAuthToken, removeAuthToken } from '../utils/auth';
+import { getAuthToken, removeAuthToken, getUser, removeUser } from '../utils/auth';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     removeAuthToken();
+    removeUser();
     navigate('/');
   };
 
@@ -18,7 +19,7 @@ const Navbar = () => {
         <>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/awareness">Awareness</Link>
-          <Link to="/admin">Admin</Link>
+          {getUser()?.isAdmin && <Link to="/admin">Admin</Link>}
           <button onClick={handleLogout}>Logout</button>
         </>
       ) : (

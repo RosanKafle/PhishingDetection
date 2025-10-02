@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setAuthToken } from '../utils/auth';
+import axios from 'axios';
+import { setAuthToken, setUser } from '../utils/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock login
-    console.log('Login attempt:', { email, password });
-    setAuthToken('mock-token');
-    navigate('/dashboard');
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      setAuthToken(res.data.token);
+      setUser(res.data.user);
+      navigate('/dashboard');
+    } catch (err) {
+      alert(err.response?.data?.error || 'Login failed');
+    }
   };
 
-  console.log('Login rendering');
   return (
     <div className="form-container">
       <h2>Login</h2>
