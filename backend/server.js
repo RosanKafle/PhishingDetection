@@ -1,4 +1,5 @@
 const express = require('express');
+
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -9,8 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+	.then(() => console.log('MongoDB connected'))
+	.catch(err => console.log(err));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/content', require('./routes/content'));
