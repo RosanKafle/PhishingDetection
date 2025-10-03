@@ -1,0 +1,802 @@
+[
+  {
+    "type": "domain-name",
+    "value": "95.139.109.60:57489",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851622"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.6.85.128:33181",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851631"
+  },
+  {
+    "type": "domain-name",
+    "value": "78.157.28.88:8497",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851633"
+  },
+  {
+    "type": "domain-name",
+    "value": "125.40.113.70:43242",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851634"
+  },
+  {
+    "type": "domain-name",
+    "value": "vrfbknsr.com",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851635"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.237.56.2:52749",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851636"
+  },
+  {
+    "type": "domain-name",
+    "value": "123.4.157.130:51764",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851637"
+  },
+  {
+    "type": "domain-name",
+    "value": "183.149.0.146:41160",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851638"
+  },
+  {
+    "type": "domain-name",
+    "value": "67.21.32.81",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851639"
+  },
+  {
+    "type": "domain-name",
+    "value": "61.52.54.82:43832",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851640"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.4.118.104:59378",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851640"
+  },
+  {
+    "type": "domain-name",
+    "value": "172.96.172.173",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851641"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.248.25.215:51435",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851642"
+  },
+  {
+    "type": "domain-name",
+    "value": "59.97.251.189:55883",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851643"
+  },
+  {
+    "type": "domain-name",
+    "value": "kosmetolodzy.com",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851643"
+  },
+  {
+    "type": "domain-name",
+    "value": "www.retirify.sbs",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851644"
+  },
+  {
+    "type": "domain-name",
+    "value": "27.215.210.114:35408",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851645"
+  },
+  {
+    "type": "domain-name",
+    "value": "182.123.211.38:57473",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851646"
+  },
+  {
+    "type": "domain-name",
+    "value": "bunker-net.zapto.org",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851647"
+  },
+  {
+    "type": "domain-name",
+    "value": "182.113.192.17:50106",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851648"
+  },
+  {
+    "type": "domain-name",
+    "value": "222.165.237.60:37379",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851649"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.231.90.112:36788",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851650"
+  },
+  {
+    "type": "domain-name",
+    "value": "37.235.164.101:58964",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851651"
+  },
+  {
+    "type": "domain-name",
+    "value": "222.138.102.67:35786",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851652"
+  },
+  {
+    "type": "domain-name",
+    "value": "61.0.104.243:58792",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851653"
+  },
+  {
+    "type": "domain-name",
+    "value": "119.117.131.218:57861",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851654"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.177.182.230:57870",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851655"
+  },
+  {
+    "type": "domain-name",
+    "value": "d1la028jgo7s1ql06100174ejdwp7z4xe.oast.site",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851656"
+  },
+  {
+    "type": "domain-name",
+    "value": "upholdd-login-a500d5.webflow.io",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851657"
+  },
+  {
+    "type": "domain-name",
+    "value": "103.188.83.28",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851657"
+  },
+  {
+    "type": "domain-name",
+    "value": "183.138.231.113:40263",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851658"
+  },
+  {
+    "type": "domain-name",
+    "value": "81.226.201.46:54352",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851659"
+  },
+  {
+    "type": "domain-name",
+    "value": "188.0.255.66:2405",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851660"
+  },
+  {
+    "type": "domain-name",
+    "value": "221.15.23.48:55298",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851661"
+  },
+  {
+    "type": "domain-name",
+    "value": "113.225.41.95:43421",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851662"
+  },
+  {
+    "type": "domain-name",
+    "value": "casaalfiume.it",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851663"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.205.169.92:49889",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851664"
+  },
+  {
+    "type": "domain-name",
+    "value": "119.119.148.206:39545",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851665"
+  },
+  {
+    "type": "domain-name",
+    "value": "222.138.78.38:56128",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851666"
+  },
+  {
+    "type": "domain-name",
+    "value": "aaronshaffier.jerusalemwalkingtour.com",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851667"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.206.3.221:39223",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851668"
+  },
+  {
+    "type": "domain-name",
+    "value": "60.23.236.104:34966",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851669"
+  },
+  {
+    "type": "domain-name",
+    "value": "95.71.40.108:21161",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851669"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.235.42.212:50313",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851670"
+  },
+  {
+    "type": "domain-name",
+    "value": "149.102.155.8",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851671"
+  },
+  {
+    "type": "domain-name",
+    "value": "123.188.15.31:45455",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851672"
+  },
+  {
+    "type": "domain-name",
+    "value": "37.54.221.251:42357",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851673"
+  },
+  {
+    "type": "domain-name",
+    "value": "59.96.136.175:45665",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851674"
+  },
+  {
+    "type": "domain-name",
+    "value": "elemasyon.com",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851675"
+  },
+  {
+    "type": "domain-name",
+    "value": "123.209.76.16:85",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851676"
+  },
+  {
+    "type": "domain-name",
+    "value": "178.50.103.42:9301",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851677"
+  },
+  {
+    "type": "domain-name",
+    "value": "115.120.217.77",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851678"
+  },
+  {
+    "type": "domain-name",
+    "value": "115.52.243.16:33790",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851679"
+  },
+  {
+    "type": "domain-name",
+    "value": "lambent-cannoli-4f64ba.netlify.app",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851680"
+  },
+  {
+    "type": "domain-name",
+    "value": "182.114.241.136:49143",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851681"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.179.1.118:34560",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851682"
+  },
+  {
+    "type": "domain-name",
+    "value": "194.54.160.182:5953",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851682"
+  },
+  {
+    "type": "domain-name",
+    "value": "91.80.158.7",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851683"
+  },
+  {
+    "type": "domain-name",
+    "value": "125.26.168.232:61036",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851684"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.215.59.154:36757",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851685"
+  },
+  {
+    "type": "domain-name",
+    "value": "65.20.102.50",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851686"
+  },
+  {
+    "type": "domain-name",
+    "value": "196.251.87.163",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851687"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.242.232.212:44423",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851688"
+  },
+  {
+    "type": "domain-name",
+    "value": "79.45.88.126:39753",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851689"
+  },
+  {
+    "type": "domain-name",
+    "value": "www.nabpoints.vip",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851689"
+  },
+  {
+    "type": "domain-name",
+    "value": "learn-docs-itrustkapit.webflow.io",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851690"
+  },
+  {
+    "type": "domain-name",
+    "value": "219.157.64.165:49742",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851691"
+  },
+  {
+    "type": "domain-name",
+    "value": "151.70.79.72:82",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851691"
+  },
+  {
+    "type": "domain-name",
+    "value": "213.16.62.185",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851692"
+  },
+  {
+    "type": "domain-name",
+    "value": "88.247.222.82:36411",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851693"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.209.84.62:60638",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851693"
+  },
+  {
+    "type": "domain-name",
+    "value": "115.63.186.83:60419",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851694"
+  },
+  {
+    "type": "domain-name",
+    "value": "120.84.212.143:34390",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851695"
+  },
+  {
+    "type": "domain-name",
+    "value": "loaders-4dt.pages.dev",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851695"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.224.192.32:56648",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851696"
+  },
+  {
+    "type": "domain-name",
+    "value": "175.150.3.104:51542",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851696"
+  },
+  {
+    "type": "domain-name",
+    "value": "124.95.103.30:54945",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851697"
+  },
+  {
+    "type": "domain-name",
+    "value": "113.239.216.11:45971",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851698"
+  },
+  {
+    "type": "domain-name",
+    "value": "115.46.157.201:44018",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851699"
+  },
+  {
+    "type": "domain-name",
+    "value": "62.178.229.39:54345",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851699"
+  },
+  {
+    "type": "domain-name",
+    "value": "83.224.144.73",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851700"
+  },
+  {
+    "type": "domain-name",
+    "value": "81.152.253.173:82",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851701"
+  },
+  {
+    "type": "domain-name",
+    "value": "123.14.253.98:48157",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851701"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.226.195.237:56387",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851702"
+  },
+  {
+    "type": "domain-name",
+    "value": "27.204.195.177:53004",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851703"
+  },
+  {
+    "type": "domain-name",
+    "value": "182.115.207.46:60900",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851704"
+  },
+  {
+    "type": "domain-name",
+    "value": "222.138.79.231:52460",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851704"
+  },
+  {
+    "type": "domain-name",
+    "value": "115.57.109.133:44293",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851705"
+  },
+  {
+    "type": "domain-name",
+    "value": "216.250.252.105",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851706"
+  },
+  {
+    "type": "domain-name",
+    "value": "59.184.252.176:38272",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851706"
+  },
+  {
+    "type": "domain-name",
+    "value": "117.215.214.43:45482",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851707"
+  },
+  {
+    "type": "domain-name",
+    "value": "125.42.70.228:40712",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851708"
+  },
+  {
+    "type": "domain-name",
+    "value": "42.177.196.229:57486",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851708"
+  },
+  {
+    "type": "domain-name",
+    "value": "HeroicsStipend.top",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851709"
+  },
+  {
+    "type": "domain-name",
+    "value": "47.98.136.161",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851710"
+  },
+  {
+    "type": "domain-name",
+    "value": "66.63.187.20:4433",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851710"
+  },
+  {
+    "type": "domain-name",
+    "value": "119.179.249.217:59082",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851711"
+  },
+  {
+    "type": "domain-name",
+    "value": "119.116.92.123:36970",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851712"
+  },
+  {
+    "type": "domain-name",
+    "value": "110.40.176.194:8099",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851712"
+  },
+  {
+    "type": "domain-name",
+    "value": "154.84.212.18:20781",
+    "labels": [
+      "malicious-activity"
+    ],
+    "created": "2025-09-07T19:28:48.851713"
+  }
+]
