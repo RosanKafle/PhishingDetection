@@ -4,10 +4,17 @@ import React, { useEffect, useState } from 'react';
 import './KPIDashboardPanel.css';
 import { FaCheckCircle, FaExclamationTriangle, FaClock, FaShieldAlt, FaSmile, FaChartLine, FaAward } from 'react-icons/fa';
 
+
 const KPIDashboardPanel = () => {
   const [kpi, setKpi] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // For phishing check
+  const [url, setUrl] = useState("");
+  const [phishingResult, setPhishingResult] = useState(null);
+  const [phishingLoading, setPhishingLoading] = useState(false);
+  const [phishingError, setPhishingError] = useState(null);
 
   useEffect(() => {
     fetch('/api/analytics/kpi')
@@ -25,9 +32,53 @@ const KPIDashboardPanel = () => {
       });
   }, []);
 
+  const handlePhishingCheck = async (e) => {
+    e.preventDefault();
+    setPhishingResult(null);
+    setPhishingError(null);
+    setPhishingLoading(true);
+    try {
+      const res = await fetch('/api/analytics/check-phishing', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+      if (!res.ok) throw new Error('Failed to check link');
+      const data = await res.json();
+      setPhishingResult(data);
+    } catch (err) {
+      setPhishingError(err.message);
+    } finally {
+      setPhishingLoading(false);
+    }
+  };
+
   return (
     <div className="kpi-dashboard-panel">
       <h2>Security KPI Dashboard</h2>
+      {/* Phishing check input */}
+      <form className="phishing-check-form" onSubmit={handlePhishingCheck} style={{marginBottom: 32}}>
+        <input
+          type="text"
+          placeholder="Enter a link to check for phishing..."
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+          className="phishing-input"
+        />
+        <button type="submit" className="phishing-btn" disabled={phishingLoading || !url.trim()}>
+          {phishingLoading ? 'Checking...' : 'Check Link'}
+        </button>
+      </form>
+      {phishingError && <div style={{color:'red', marginBottom: 12}}>Error: {phishingError}</div>}
+      {phishingResult && (
+        <div className={`phishing-result ${phishingResult.threat_level && phishingResult.threat_level !== 'INFORMATIONAL' ? 'phishing' : 'safe'}`}
+             style={{marginBottom: 24}}>
+          <strong>Result:</strong> {phishingResult.threat_level ? phishingResult.threat_level : phishingResult.error}
+          {phishingResult.threat_score !== undefined && (
+            <span style={{marginLeft: 12}}>Score: {phishingResult.threat_score}</span>
+          )}
+        </div>
+      )}
       {loading && <div>Loading...</div>}
       {error && <div style={{color:'red'}}>Error: {error}</div>}
       {kpi && (
