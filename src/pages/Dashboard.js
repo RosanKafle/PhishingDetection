@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
 import DetectionResult from '../components/DetectionResult';
+import MLDashboard from '../components/MLDashboard';
 import { detectPhishing } from '../utils/phishingDetector';
 
 const Dashboard = () => {
@@ -17,9 +18,28 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
+    // Fetch history once on mount
     fetchDetectionHistory();
-    calculateStats();
   }, []);
+
+  // Recalculate stats whenever detectionHistory changes
+  const calculateStats = useCallback(() => {
+    const total = detectionHistory.length;
+    const phishing = detectionHistory.filter(d => d.result === 'phishing').length;
+    const safe = detectionHistory.filter(d => d.result === 'safe').length;
+    const accuracy = total > 0 ? Math.round((safe / total) * 100) : 0;
+    
+    setStats({
+      totalDetections: total,
+      phishingDetected: phishing,
+      safeContent: safe,
+      accuracyRate: accuracy
+    });
+  }, [detectionHistory]);
+
+  useEffect(() => {
+    calculateStats();
+  }, [calculateStats]);
 
   const fetchDetectionHistory = async () => {
     try {
@@ -35,19 +55,7 @@ const Dashboard = () => {
     }
   };
 
-  const calculateStats = () => {
-    const total = detectionHistory.length;
-    const phishing = detectionHistory.filter(d => d.result === 'phishing').length;
-    const safe = detectionHistory.filter(d => d.result === 'safe').length;
-    const accuracy = total > 0 ? Math.round((safe / total) * 100) : 0;
-    
-    setStats({
-      totalDetections: total,
-      phishingDetected: phishing,
-      safeContent: safe,
-      accuracyRate: accuracy
-    });
-  };
+  // ...calculateStats is defined above using useCallback
 
   const handleAnalyze = async () => {
     if (!content.trim()) {
@@ -202,6 +210,10 @@ const Dashboard = () => {
         </div>
       )}
 
+      {/* ML Dashboard */}
+      <div className="col-span-3">
+        <MLDashboard />
+      </div>
       {/* Detection History */}
       <div className="card mb-5">
         <div className="card-header">
