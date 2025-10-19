@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
+import ThreatDashboard from '../components/ThreatDashboard';
+import MLDashboard from '../components/MLDashboard';
+import UserBehavior from '../components/UserBehavior';
 
 const AdminPanel = () => {
   const [type, setType] = useState('article');
@@ -228,63 +231,22 @@ const AdminPanel = () => {
           </button>
         </div>
         
-        <div className="alert alert-info">
-          <strong>ℹ️ Note:</strong> Content management features will be fully available once the backend is connected. Currently, you can create new content using the form above.
-        </div>
+
       </div>
       
-      {/* Analytics Dashboard */}
-      <div className="card mb-5">
-        <div className="card-header">
-          <h2 className="card-title">📈 Analytics Dashboard</h2>
-          <p className="card-subtitle">Platform usage and performance metrics</p>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-6">
-          <div className="content">
-            <h3 className="mb-4">📊 User Engagement</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span>Daily Active Users</span>
-                <span className="font-bold text-primary">0</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Content Views</span>
-                <span className="font-bold text-info">0</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Quiz Completions</span>
-                <span className="font-bold text-success">0</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Detection Requests</span>
-                <span className="font-bold text-warning">0</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="content">
-            <h3 className="mb-4">🎯 Performance Metrics</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span>Average Detection Time</span>
-                <span className="font-bold text-primary">0.5s</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>System Uptime</span>
-                <span className="font-bold text-success">99.9%</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>Content Accuracy</span>
-                <span className="font-bold text-info">95%</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span>User Satisfaction</span>
-                <span className="font-bold text-warning">4.8/5</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* ML Performance Dashboard */}
+      <div className="mb-5">
+        <MLDashboard />
+      </div>
+      
+      {/* Threat Intelligence Dashboard */}
+      <div className="mb-5">
+        <ThreatDashboard />
+      </div>
+      
+      {/* User Behavior Analytics */}
+      <div className="mb-5">
+        <UserBehavior />
       </div>
       
       {/* System Status */}

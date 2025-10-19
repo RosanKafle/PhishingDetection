@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { getAuthToken, removeAuthToken } from '../utils/auth';
+import { getAuthToken, removeAuthToken, isAdmin } from '../utils/auth';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -37,14 +37,16 @@ const Navbar = () => {
                 📚 Awareness
               </Link>
             </li>
-            <li>
-              <Link 
-                to="/admin" 
-                className={location.pathname === '/admin' ? 'active' : ''}
-              >
-                ⚙️ Admin
-              </Link>
-            </li>
+            {isAdmin() && (
+              <li>
+                <Link 
+                  to="/admin" 
+                  className={location.pathname === '/admin' ? 'active' : ''}
+                >
+                  ⚙️ Admin
+                </Link>
+              </li>
+            )}
             <li>
               <button onClick={handleLogout} className="btn btn-secondary">
                 🚪 Logout

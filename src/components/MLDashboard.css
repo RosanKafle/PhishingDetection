@@ -1,0 +1,66 @@
+.ml-dashboard {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.ml-panel-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.ml-panel-error {
+  padding: 1rem;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  color: #c33;
+}
+
+.cache-indicator {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.ml-dashboard-image {
+  margin-bottom: 1rem;
+}
+
+.no-image {
+  padding: 2rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+  color: #666;
+  text-align: center;
+}
+
+.ml-dashboard-metrics {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kpi-card {
+  flex: 1;
+  min-width: 120px;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.kpi-label {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}

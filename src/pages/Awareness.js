@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
 import Quiz from '../components/Quiz';
@@ -10,12 +10,13 @@ const Awareness = () => {
 
   useEffect(() => {
     fetchContent();
-  }, []);
+  }, [fetchContent]);
 
-  const fetchContent = async () => {
+  const fetchContent = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/content', {
-        headers: { Authorization: `Bearer ${getAuthToken()}` }
+        headers: { Authorization: `Bearer ${getAuthToken()}` },
+        timeout: 10000
       });
       setContent(response.data);
     } catch (error) {
@@ -41,20 +42,40 @@ const Awareness = () => {
             questions: [
               { question: 'Is it safe to click on links in emails from unknown senders?', answer: 'No' },
               { question: 'Should you verify suspicious emails by calling the sender?', answer: 'Yes' },
-              { question: 'Is it okay to share your password with IT support via email?', answer: 'No' }
+              { question: 'Is it okay to share your password with IT support via email?', answer: 'No' },
+              { question: 'Should you trust emails asking for urgent financial information?', answer: 'No' },
+              { question: 'Is it safe to download attachments from unknown sources?', answer: 'No' },
+              { question: 'Should you check the sender\'s email address carefully?', answer: 'Yes' },
+              { question: 'Is it okay to enter personal information on suspicious websites?', answer: 'No' },
+              { question: 'Should you report suspected phishing emails to IT?', answer: 'Yes' },
+              { question: 'Is it safe to use public Wi-Fi for banking?', answer: 'No' },
+              { question: 'Should you use two-factor authentication when available?', answer: 'Yes' }
             ]
           }
         }
       ]);
     }
     setLoading(false);
-  };
+  }, []);
 
-  const handleQuizAnswer = (questionIndex, isCorrect) => {
+  const handleQuizAnswer = useCallback((questionIndex, isCorrect) => {
     if (isCorrect) {
       setQuizScore(prev => prev + 1);
     }
-  };
+  }, []);
+
+  const articleCount = useMemo(() => 
+    content.filter(c => c.type === 'article').length, [content]
+  );
+  
+  const quizCount = useMemo(() => 
+    content.filter(c => c.type === 'quiz').length, [content]
+  );
+  
+  const masteryLevel = useMemo(() => 
+    quizCount > 0 ? Math.round((quizScore / (quizCount * 3)) * 100) : 0, 
+    [quizScore, quizCount]
+  );
 
   if (loading) {
     return (
@@ -96,7 +117,7 @@ const Awareness = () => {
         <div className="grid grid-cols-3 gap-4">
           <div className="text-center">
             <div className="text-3xl mb-2">📖</div>
-            <div className="text-2xl font-bold text-primary">{content.filter(c => c.type === 'article').length}</div>
+            <div className="text-2xl font-bold text-primary">{articleCount}</div>
             <div className="text-secondary">Articles Read</div>
           </div>
           
@@ -109,8 +130,7 @@ const Awareness = () => {
           <div className="text-center">
             <div className="text-3xl mb-2">🎯</div>
             <div className="text-2xl font-bold text-success">
-              {content.filter(c => c.type === 'quiz').length > 0 ? 
-                Math.round((quizScore / (content.filter(c => c.type === 'quiz').length * 3)) * 100) : 0}%
+              {masteryLevel}%
             </div>
             <div className="text-secondary">Mastery Level</div>
           </div>
@@ -158,7 +178,9 @@ const Awareness = () => {
                 <strong>🧠 Knowledge Check:</strong> Test your understanding with this interactive quiz
               </div>
               
-              {item.content.questions && item.content.questions.map((q, qIndex) => (
+              {item.content.questions && item.content.questions
+                .slice(0, 5)
+                .map((q, qIndex) => (
                 <div key={qIndex} className="mb-6">
                   <Quiz 
                     question={q.question}
@@ -171,18 +193,18 @@ const Awareness = () => {
               {quizScore > 0 && (
                 <div className="quiz-score text-center mt-6 p-4" style={{ background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)' }}>
                   <div className="text-2xl font-bold mb-2">
-                    Your Score: {quizScore}/{item.content.questions.length}
+                    Your Score: {quizScore}/5
                   </div>
                   <div className="progress mb-3">
                     <div 
                       className="progress-bar" 
-                      style={{ width: `${(quizScore / item.content.questions.length) * 100}%` }}
+                      style={{ width: `${(quizScore / 5) * 100}%` }}
                     ></div>
                   </div>
                   <div className="mt-2">
-                    {quizScore === item.content.questions.length ? (
+                    {quizScore === 5 ? (
                       <span className="text-success text-lg">🎉 Perfect! You're a phishing detection expert!</span>
-                    ) : quizScore >= item.content.questions.length * 0.7 ? (
+                    ) : quizScore >= 4 ? (
                       <span className="text-warning text-lg">👍 Good job! Keep learning!</span>
                     ) : (
                       <span className="text-danger text-lg">📚 Keep studying to improve your knowledge!</span>

@@ -1,11 +1,36 @@
 const mongoose = require('mongoose');
-const ThreatSchema = new mongoose.Schema({
-  url: { type: String, required: true, index: true },
-  source: String,
-  collected_at: { type: Date, default: Date.now },
-  normalized: Object,
-  score: Number,
-  level: String,
-  meta: Object
-}, { timestamps: true });
+const Schema = mongoose.Schema;
+
+const ThreatSchema = new Schema({
+  url: { 
+    type: String, 
+    required: true, 
+    index: true,
+    trim: true
+  },
+  source: { 
+    type: String, 
+    default: 'manual',
+    enum: ['manual', 'openphish', 'urlhaus', 'virustotal']
+  },
+  timestamp: { 
+    type: Date, 
+    default: Date.now,
+    index: true
+  },
+  status: { 
+    type: String, 
+    enum: ['new', 'scored', 'archived'], 
+    default: 'new',
+    index: true
+  },
+  features: { type: Schema.Types.Mixed },
+  score: { 
+    type: Number, 
+    default: 0,
+    min: 0,
+    max: 100
+  }
+});
+
 module.exports = mongoose.model('Threat', ThreatSchema);

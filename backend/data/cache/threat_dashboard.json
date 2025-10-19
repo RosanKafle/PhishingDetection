@@ -1,0 +1,1 @@
+{"ok":true,"stdout":"Creating dashboard for 63988 threat URLs...\n\n=== Threat Intelligence Summary ===\nTotal URLs analyzed: 63988\nAverage threat score: 10.28\nHighest threat score: 30\n\nThreat Level Distribution:\n  INFORMATIONAL: 63828 (99.7%)\n  LOW: 160 (0.3%)\n","ts":1760889712761}

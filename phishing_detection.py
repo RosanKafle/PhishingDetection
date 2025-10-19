@@ -24,20 +24,37 @@ def extract_features(url):
         print(f"Error processing URL {url}: {e}")
         return None
 
-# Step 2: Create sample dataset (mimics report's open-source threat feeds)
+# Step 2: Create larger, more realistic dataset
 urls = [
-    "https://google.com",           # Safe
-    "http://g00gle-login.com",      # Phishing
-    "https://paypal.com",           # Safe
-    "http://secure-verify.net",     # Phishing
-    "https://facebook.com",         # Safe
-    "http://faceb00k-login.org",    # Phishing
-    "http://bank-secure.com",       # Phishing
-    "https://amazon.com",           # Safe
-    "http://amaz0n-verify.com",     # Phishing
-    "https://twitter.com"           # Safe
+    # Legitimate sites (20)
+    "https://google.com", "https://facebook.com", "https://amazon.com", "https://microsoft.com",
+    "https://apple.com", "https://twitter.com", "https://linkedin.com", "https://github.com",
+    "https://stackoverflow.com", "https://wikipedia.org", "https://youtube.com", "https://gmail.com",
+    "https://paypal.com", "https://ebay.com", "https://netflix.com", "https://spotify.com",
+    "https://accounts.google.com", "https://login.facebook.com", "https://signin.amazon.com",
+    "https://appleid.apple.com",
+    
+    # Phishing sites (15)
+    "http://g00gle-login.com", "http://faceb00k-verify.net", "http://amaz0n-secure.org",
+    "http://micr0soft-update.com", "http://apple-id-verify.net", "http://twitter-secure.org",
+    "http://linkedin-account.com", "http://github-login.net", "http://paypal-verify.org",
+    "http://ebay-secure.com", "http://netflix-account.net", "http://spotify-login.org",
+    "http://secure-bank-login.suspicious.com", "https://verify-account.phishing.net",
+    "http://update-now.malicious.com",
+    
+    # Borderline/sophisticated cases (10)
+    "https://goog1e.com", "https://facebok.com", "https://arnazon.com",
+    "http://microsoft-support.fake.com", "https://app1e.com", "https://twiter.com",
+    "http://paypa1.com", "https://ebay-security.fake.net", "http://netf1ix.com",
+    "http://192.168.1.1/login"
 ]
-labels = [0, 1, 0, 1, 0, 1, 1, 0, 1, 0]  # 0=safe, 1=phishing
+
+# More realistic labels with some classification challenges
+labels = (
+    [0] * 20 +  # Legitimate sites
+    [1] * 15 +  # Clear phishing
+    [1] * 10    # Sophisticated phishing
+)
 
 # Convert URLs to features
 data = [extract_features(url) for url in urls]
@@ -54,9 +71,9 @@ if df.empty:
 X = df.drop('is_phishing', axis=1)
 y = df['is_phishing']
 
-# Step 5: Split data: 80% train, 20% test
+# Step 5: Split data: 70% train, 30% test (larger test set for better evaluation)
 try:
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
 except ValueError as e:
     print(f"Error splitting data: {e}. Need more data points.")
     exit()

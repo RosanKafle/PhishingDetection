@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
 import DetectionResult from '../components/DetectionResult';
 import MLDashboard from '../components/MLDashboard';
+import UserBehavior from '../components/UserBehavior';
 import { detectPhishing } from '../utils/phishingDetector';
 
 const Dashboard = () => {
@@ -211,7 +212,7 @@ const Dashboard = () => {
       )}
 
       {/* ML Dashboard */}
-      <div className="col-span-3">
+      <div className="mb-5">
         <MLDashboard />
       </div>
       {/* Detection History */}
