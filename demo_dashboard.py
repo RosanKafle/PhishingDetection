@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 
 def create_demo_visualizations():
-    """Create comprehensive threat intelligence dashboard"""
     try:
         df = pd.read_csv('combined_threats_scored.csv')
         print(f"Creating dashboard for {len(df)} threat URLs...")
@@ -34,7 +33,7 @@ def create_demo_visualizations():
         ax3.set_ylabel('Count')
         ax3.tick_params(axis='x', rotation=45)
         
-        # 4. Top 10 suspicious domains (if domain data available)
+        # 4. Top 10 suspicious domains (if domain data is available)
         if 'domain' in df.columns:
             top_domains = df['domain'].value_counts().head(10)
             ax4.barh(range(len(top_domains)), top_domains.values, color='lightcoral')
