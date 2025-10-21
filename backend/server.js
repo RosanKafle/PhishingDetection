@@ -32,7 +32,7 @@ app.use('/api/', limiter);
 // Stricter rate limit for auth endpoints
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 5,
+  max: 50,
   message: { error: 'Too many auth attempts' }
 });
 app.use('/api/auth/', authLimiter);
@@ -53,10 +53,28 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, s
 	.then(() => console.log('Connected to MongoDB'))
 	.catch((err) => console.warn('MongoDB connection warning:', err.message, '\nTo run locally, start MongoDB (see backend/.env.example or run `docker compose up -d mongodb`)'));
 
-// Initialize scheduler lazily
+// Initialize scheduler and run startup initialization
 setImmediate(() => {
   try {
     require('./services/scheduler');
+    
+    // Run startup initialization script
+    console.log('Running startup initialization...');
+    const { spawnSync } = require('child_process');
+    const projectRoot = path.join(__dirname, '..');
+    
+    const initResult = spawnSync('python3', ['backend/scripts/startup_init.py'], {
+      cwd: projectRoot,
+      timeout: 180000, // 3 minutes for full initialization
+      stdio: 'inherit' // Show output in console
+    });
+    
+    if (initResult.status === 0) {
+      console.log('✓ Startup initialization completed successfully');
+    } else {
+      console.warn('⚠ Startup initialization completed with warnings');
+    }
+    
   } catch (err) {
     console.warn('Scheduler initialization warning:', err.message);
   }
@@ -86,10 +104,12 @@ const loadRoute = (routePath) => {
 
 app.use('/api/analytics', (req, res, next) => loadRoute('./routes/analytics')(req, res, next));
 app.use('/api/dashboard', (req, res, next) => loadRoute('./routes/dashboard')(req, res, next));
+app.use('/api/detections', (req, res, next) => loadRoute('./routes/detections')(req, res, next));
 app.use('/api/ingest', (req, res, next) => loadRoute('./routes/ingest')(req, res, next));
 app.use('/api/pentest', (req, res, next) => loadRoute('./routes/pentest')(req, res, next));
 app.use('/api/collectors', (req, res, next) => loadRoute('./routes/collectors')(req, res, next));
 app.use('/api/auth', (req, res, next) => loadRoute('./routes/auth')(req, res, next));
+app.use('/api/admin', (req, res, next) => loadRoute('./routes/admin')(req, res, next));
 
 // Serve static backend data (including generated ML dashboard image)
 app.use('/backend/data', express.static(path.join(__dirname, 'data')));

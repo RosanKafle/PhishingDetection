@@ -10,13 +10,33 @@ router.get('/threat-intelligence', async (req, res) => {
   if (cached) return res.json({ fromCache: true, ...cached });
   
   try {
+    const scriptPath = path.join(__dirname, '../..', 'demo_dashboard.py');
+    const fs = require('fs');
+    
+    if (!fs.existsSync(scriptPath)) {
+      return res.json({ ok: false, error: 'Dashboard script not found', ts: Date.now() });
+    }
+    
     const result = spawnSync('python3', ['demo_dashboard.py'], { 
-      cwd: path.join(__dirname, '../..'), timeout: 60000 
+      cwd: path.join(__dirname, '../..'), 
+      timeout: 30000,
+      maxBuffer: 10 * 1024 * 1024
     });
-    const payload = { ok: result.status === 0, stdout: result.stdout?.toString() || '', ts: Date.now() };
+    
+    const payload = { 
+      ok: result.status === 0, 
+      stdout: result.stdout?.toString() || '', 
+      stderr: result.stderr?.toString() || '',
+      ts: Date.now() 
+    };
+    
     writeCache('threat_dashboard', payload);
     return res.json({ fromCache: false, ...payload });
-  } catch (e) { return res.status(500).json({ error: e.message }); }
+  } catch (e) { 
+    const errorPayload = { ok: false, error: e.message, ts: Date.now() };
+    writeCache('threat_dashboard', errorPayload);
+    return res.json(errorPayload);
+  }
 });
 
 // 2. User behavior analytics

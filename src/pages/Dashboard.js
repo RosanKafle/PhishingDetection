@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { getAuthToken } from '../utils/auth';
 import DetectionResult from '../components/DetectionResult';
-import MLDashboard from '../components/MLDashboard';
 import UserBehavior from '../components/UserBehavior';
 import { detectPhishing } from '../utils/phishingDetector';
 
@@ -17,10 +16,12 @@ const Dashboard = () => {
     safeContent: 0,
     accuracyRate: 0
   });
+  const [mlMetrics, setMlMetrics] = useState(null);
 
   useEffect(() => {
     // Fetch history once on mount
     fetchDetectionHistory();
+    fetchMLMetrics();
   }, []);
 
   // Recalculate stats whenever detectionHistory changes
@@ -28,15 +29,15 @@ const Dashboard = () => {
     const total = detectionHistory.length;
     const phishing = detectionHistory.filter(d => d.result === 'phishing').length;
     const safe = detectionHistory.filter(d => d.result === 'safe').length;
-    const accuracy = total > 0 ? Math.round((safe / total) * 100) : 0;
+    const mlAccuracy = mlMetrics?.accuracy ? parseFloat(mlMetrics.accuracy.replace('%', '')) : 0;
     
     setStats({
       totalDetections: total,
       phishingDetected: phishing,
       safeContent: safe,
-      accuracyRate: accuracy
+      accuracyRate: mlAccuracy
     });
-  }, [detectionHistory]);
+  }, [detectionHistory, mlMetrics]);
 
   useEffect(() => {
     calculateStats();
@@ -53,6 +54,15 @@ const Dashboard = () => {
     } catch (error) {
       // Fallback to empty array if backend is not available
       setDetectionHistory([]);
+    }
+  };
+
+  const fetchMLMetrics = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/analytics/ml/metrics');
+      setMlMetrics(response.data.metrics);
+    } catch (error) {
+      setMlMetrics(null);
     }
   };
 
@@ -108,8 +118,9 @@ const Dashboard = () => {
           </p>
           <div className="mt-4">
             <div className="badge badge-primary">Real-time Analysis</div>
-            <div className="badge badge-success">AI-Powered Detection</div>
+
             <div className="badge badge-info">Instant Results</div>
+
           </div>
         </div>
       </div>
@@ -211,10 +222,7 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* ML Dashboard */}
-      <div className="mb-5">
-        <MLDashboard />
-      </div>
+
       {/* Detection History */}
       <div className="card mb-5">
         <div className="card-header">

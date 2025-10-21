@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -51,7 +53,7 @@ def create_demo_visualizations():
         
         plt.tight_layout()
         plt.savefig('threat_intelligence_dashboard.png', dpi=300, bbox_inches='tight')
-        plt.show()
+        plt.close()  # Close figure to free memory
         
         # Print summary statistics
         print("\n=== Threat Intelligence Summary ===")

@@ -8,10 +8,13 @@ const ThreatDashboard = () => {
   useEffect(() => {
     async function load() {
       try {
-        const res = await axios.get('http://localhost:5000/api/dashboard/threat-intelligence');
+        const res = await axios.get('http://localhost:5000/api/dashboard/threat-intelligence', {
+          timeout: 30000
+        });
         setData(res.data);
       } catch (e) {
         console.error(e);
+        setData({ ok: false, error: e.message });
       } finally { setLoading(false); }
     }
     load();
@@ -22,13 +25,27 @@ const ThreatDashboard = () => {
   return (
     <div className="card">
       <h3>Threat Intelligence Dashboard</h3>
-      {data?.ok ? (
+      {data?.ok !== false ? (
         <div>
-          <img src="http://localhost:5000/threat_intelligence_dashboard.png" alt="Threat Dashboard" style={{width: '100%'}} />
-          <pre style={{fontSize: '12px', background: '#f5f5f5', padding: '1rem'}}>{data.stdout}</pre>
+          <img 
+            src={`http://localhost:5000/threat_intelligence_dashboard.png?t=${Date.now()}`}
+            alt="Threat Dashboard" 
+            style={{width: '100%'}} 
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'block';
+            }}
+          />
+          <div style={{display: 'none', padding: '2rem', textAlign: 'center', background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '8px', color: '#6c757d'}}>
+            📊 Threat Intelligence Dashboard<br/>
+            <small>Chart not available - data processing in progress</small>
+          </div>
         </div>
       ) : (
-        <div>Error loading threat dashboard</div>
+        <div style={{padding: '2rem', textAlign: 'center', background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '8px', color: '#6c757d'}}>
+          ⚠️ Threat Intelligence Unavailable<br/>
+          <small>{data?.error || 'Service temporarily offline'}</small>
+        </div>
       )}
     </div>
   );

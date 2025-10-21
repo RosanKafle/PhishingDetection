@@ -17,7 +17,7 @@ const MLDashboard = () => {
       try {
         const res = await axios.get('http://localhost:5000/api/analytics/ml/metrics', {
           signal: controller.signal,
-          timeout: 10000
+          timeout: 30000
         });
         if (cancelled) return;
         setData(res.data);
@@ -40,7 +40,7 @@ const MLDashboard = () => {
   if (error) return <div className="ml-panel-error">Error: {error}</div>;
   
   const metrics = data?.metrics || {};
-  const imgUrl = data?.image ? `http://localhost:5000/backend/data/ml_dashboard.png` : null;
+  const imgUrl = data?.image ? `http://localhost:5000/backend/data/ml_dashboard.png?t=${Date.now()}` : null;
   
   return (
     <div className="ml-dashboard">
