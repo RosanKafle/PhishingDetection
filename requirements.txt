@@ -1,25 +1,10 @@
-# Requirements for PhishingDetection project
-# Run: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-
-# Data and ML
-pandas>=1.5.0
-numpy>=1.24.0
-scikit-learn>=1.2.0
-joblib>=1.3.0
-
-# Plotting / images
-matplotlib>=3.6.0
-seaborn>=0.12.0
-Pillow>=9.4.0
-
-# HTTP / utilities
-requests>=2.31.0
-python-dateutil>=2.8.2
-
-# Optional / dev
-flask>=2.2.0  # optional, if you run any small Flask helpers
-pytest>=7.3.0  # for running tests
-
-# Notes:
-# - Install in a virtualenv. Some systems may need system packages (build-essential, python3-dev) for building wheels.
-# - If you don't need Flask for your environment, you can remove it from the list.
+pandas>=1.3.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+joblib>=1.0.0
+requests>=2.25.0
+matplotlib>=3.3.0
+seaborn>=0.11.0
+flask>=2.0.0
+fastapi>=0.68.0
+uvicorn>=0.15.0
