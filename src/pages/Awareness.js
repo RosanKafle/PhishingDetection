@@ -341,7 +341,22 @@ const Awareness = () => {
             <div className="text-4xl mb-3">📊</div>
             <h3>Reports</h3>
             <p className="text-secondary mb-4">View latest phishing statistics</p>
-            <button className="btn btn-secondary">View Reports</button>
+            <div className="mt-4">
+              <div className="mb-3">
+                <a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary mb-2 d-block">
+                  FBI IC3 2023 Report
+                </a>
+                <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary mb-2 d-block">
+                  Verizon DBIR 2024
+                </a>
+                <a href="https://www.proofpoint.com/us/threat-insight/post/state-phish-2024" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary mb-2 d-block">
+                  Proofpoint State of Phish
+                </a>
+                <a href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-primary d-block">
+                  CISA Advisories
+                </a>
+              </div>
+            </div>
           </div>
           
           <div className="content text-center hover-lift">
