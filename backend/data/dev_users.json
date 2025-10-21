@@ -5,5 +5,12 @@
     "email": "test@example.com",
     "password": "$2a$10$RSYEZ4s8b7uGPFlJX5Nnxuy9W0D1zzHZbIuLvBoVmHgzkIpD4IciS",
     "createdAt": "2025-10-19T12:58:02.383Z"
+  },
+  {
+    "id": "mh0nskrs",
+    "username": "admin@yes.com",
+    "email": "ad@yes.com",
+    "password": "$2a$10$TFmzziJgalsEYgFjZqOosuTi4xL7pqsavacojJ9ePBLk2C9yGksIm",
+    "createdAt": "2025-10-21T14:27:54.280Z"
   }
 ]
