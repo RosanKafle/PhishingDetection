@@ -8,10 +8,6 @@ const Awareness = () => {
   const [loading, setLoading] = useState(true);
   const [quizScore, setQuizScore] = useState(0);
 
-  useEffect(() => {
-    fetchContent();
-  }, [fetchContent]);
-
   const fetchContent = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/content', {
@@ -57,6 +53,10 @@ const Awareness = () => {
     }
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    fetchContent();
+  }, [fetchContent]);
 
   const handleQuizAnswer = useCallback((questionIndex, isCorrect) => {
     if (isCorrect) {
