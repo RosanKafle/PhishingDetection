@@ -49,7 +49,7 @@ app.use(cors({
 const mongoose = require('mongoose');
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/phishing';
 mongoose.set('bufferTimeoutMS', 5000);
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000 })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 10000 })
 	.then(() => console.log('Connected to MongoDB'))
 	.catch((err) => console.warn('MongoDB connection warning:', err.message, '\nTo run locally, start MongoDB (see backend/.env.example or run `docker compose up -d mongodb`)'));
 

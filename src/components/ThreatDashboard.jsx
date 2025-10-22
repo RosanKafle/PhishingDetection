@@ -8,7 +8,7 @@ const ThreatDashboard = () => {
   useEffect(() => {
     async function load() {
       try {
-        const res = await axios.get('http://localhost:5000/api/dashboard/threat-intelligence', {
+        const res = await axios.get('http://localhost:5001/api/dashboard/threat-intelligence', {
           timeout: 30000
         });
         setData(res.data);
@@ -28,7 +28,7 @@ const ThreatDashboard = () => {
       {data?.ok !== false ? (
         <div>
           <img 
-            src={`http://localhost:5000/threat_intelligence_dashboard.png?t=${Date.now()}`}
+            src={`http://localhost:5001/threat_intelligence_dashboard.png?t=${Date.now()}`}
             alt="Threat Dashboard" 
             style={{width: '100%'}} 
             onError={(e) => {

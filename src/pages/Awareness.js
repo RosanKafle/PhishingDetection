@@ -10,7 +10,7 @@ const Awareness = () => {
 
   const fetchContent = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/content', {
+      const response = await axios.get('http://localhost:5001/api/content', {
         headers: { Authorization: `Bearer ${getAuthToken()}` },
         timeout: 10000
       });

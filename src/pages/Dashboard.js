@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   const fetchDetectionHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/detections', {
+      const response = await axios.get('http://localhost:5001/api/detections', {
         headers: { Authorization: `Bearer ${getAuthToken()}` }
       });
       // Handle the paginated response structure
@@ -59,7 +59,7 @@ const Dashboard = () => {
 
   const fetchMLMetrics = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/analytics/ml/metrics');
+      const response = await axios.get('http://localhost:5001/api/analytics/ml/metrics');
       setMlMetrics(response.data.metrics);
     } catch (error) {
       setMlMetrics(null);
@@ -83,7 +83,7 @@ const Dashboard = () => {
       
       // Try to save to backend
       try {
-        await axios.post('http://localhost:5000/api/detections', {
+        await axios.post('http://localhost:5001/api/detections', {
           content: content.substring(0, 500), // Limit content length
           result: detection.isPhishing ? 'phishing' : 'safe',
           reason: detection.reason

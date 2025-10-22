@@ -22,7 +22,7 @@ const AdminPanel = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/stats');
+      const response = await axios.get('http://localhost:5001/api/admin/stats');
       setStats(response.data);
     } catch (error) {
       console.warn('Failed to fetch admin stats:', error);
@@ -34,7 +34,7 @@ const AdminPanel = () => {
     setLoading(true);
     
     try {
-      await axios.post('http://localhost:5000/api/content/add', { type, title, content }, {
+      await axios.post('http://localhost:5001/api/content/add', { type, title, content }, {
         headers: { Authorization: `Bearer ${getAuthToken()}` }
       });
       alert('Content added successfully!');
