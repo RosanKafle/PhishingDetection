@@ -110,6 +110,7 @@ app.use('/api/pentest', (req, res, next) => loadRoute('./routes/pentest')(req, r
 app.use('/api/collectors', (req, res, next) => loadRoute('./routes/collectors')(req, res, next));
 app.use('/api/auth', (req, res, next) => loadRoute('./routes/auth')(req, res, next));
 app.use('/api/admin', (req, res, next) => loadRoute('./routes/admin')(req, res, next));
+app.use('/api/content', (req, res, next) => loadRoute('./routes/content')(req, res, next));
 
 // Serve static backend data (including generated ML dashboard image)
 app.use('/backend/data', express.static(path.join(__dirname, 'data')));

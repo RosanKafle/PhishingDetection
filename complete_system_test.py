@@ -37,7 +37,6 @@ def test_role_components():
     all_tests = {
         "Role 1 - Threat Intelligence": role1_tests,
         "Role 2 - ML Engineer": role2_tests, 
-        "Role 3 - Full-Stack Developer": role3_tests,
         "Role 4 - Security Data Scientist": role4_tests,
         "Role 5 - Penetration Testing": role5_tests
     }

@@ -8,7 +8,7 @@ router.get('/stats', async (req, res) => {
     let stats = {
       totalUsers: 0,
       totalDetections: 0,
-      totalArticles: 2, // Fixed number as requested
+      totalArticles: 0,
       totalQuizzes: 0
     };
 
@@ -24,6 +24,15 @@ router.get('/stats', async (req, res) => {
           stats.totalDetections = await Detection.countDocuments();
         } catch (e) {
           // Detection model might not exist
+        }
+        
+        // Count content
+        try {
+          const Content = require('../models/content');
+          stats.totalArticles = await Content.countDocuments({ type: 'article' });
+          stats.totalQuizzes = await Content.countDocuments({ type: 'quiz' });
+        } catch (e) {
+          console.warn('Content count failed:', e.message);
         }
       } catch (e) {
         console.warn('Database query failed:', e.message);

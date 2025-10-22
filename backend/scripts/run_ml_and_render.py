@@ -100,7 +100,10 @@ def _render_pil_chart(labels, values):
     try:
         font = ImageFont.truetype('DejaVuSans.ttf', 14)
     except Exception:
-        font = ImageFont.load_default() if ImageFont is not None else None
+        try:
+            font = ImageFont.load_default()
+        except Exception:
+            font = None
     
     max_h = height - 2*margin
     colors = ['#4caf50','#2196f3','#ff9800','#9c27b0']
@@ -114,19 +117,31 @@ def _render_pil_chart(labels, values):
         
         txt = f"{v:.1f}%"
         if font is not None:
-            tw, th = draw.textsize(txt, font=font)
+            try:
+                tw, th = draw.textsize(txt, font=font)
+            except AttributeError:
+                bbox = draw.textbbox((0, 0), txt, font=font)
+                tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
         else:
             tw = th = 0
         draw.text((x, max(y0 - th - 4, 0)), txt, fill='black', font=font)
         
         lbl = labels[i]
         if font is not None:
-            lw, lh = draw.textsize(lbl, font=font)
+            try:
+                lw, lh = draw.textsize(lbl, font=font)
+            except AttributeError:
+                bbox = draw.textbbox((0, 0), lbl, font=font)
+                lw, lh = bbox[2] - bbox[0], bbox[3] - bbox[1]
         draw.text((x, y1 + 4), lbl, fill='black', font=font)
     
     title = 'Phishing Detector Metrics'
     if font is not None:
-        tw, th = draw.textsize(title, font=font)
+        try:
+            tw, th = draw.textsize(title, font=font)
+        except AttributeError:
+            bbox = draw.textbbox((0, 0), title, font=font)
+            tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
     draw.text((margin, 8), title, fill='black', font=font)
     
     buf = BytesIO()
